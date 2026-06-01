@@ -2369,12 +2369,7 @@
                 </div>
             </div>
             <div class="contact-form fade-in" id="contactFormWrapper">
-                <form id="contactForm" action="https://formsubmit.co/mutungashadrack0909@gmail.com" method="POST">
-                    <!-- FormSubmit.co Configuration -->
-                    <input type="hidden" name="_subject" value="New Portfolio Contact!">
-                    <input type="hidden" name="_captcha" value="false">
-                    <input type="hidden" name="_template" value="table">
-                    <input type="hidden" name="_next" id="formRedirect">
+               <form id="contactForm">
                     
                     <div class="form-row">
                         <div class="form-group">
@@ -2865,16 +2860,26 @@
         const formWrapper = document.getElementById('contactFormWrapper');
         const formSuccess = document.getElementById('formSuccess');
 
-        contactForm.addEventListener('submit', function(e) {
-            submitBtn.disabled = true;
-            submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Sending...';
-        });
+       contactForm.addEventListener('submit', function(e) {
+    e.preventDefault();
+    const name = document.getElementById('name').value;
+    const email = document.getElementById('email').value;
+    const subject = document.getElementById('subject').value;
+    const message = document.getElementById('message').value;
 
-        // Check if returning from FormSubmit.co redirect
-        if (window.location.href.includes('formsubmit.co')) {
-            contactForm.style.display = 'none';
-            formSuccess.classList.add('show');
-        }
+    submitBtn.disabled = true;
+    submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Sending...';
+
+    const mailto = `mailto:mutungashadrack0909@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent('Name: ' + name + '\nEmail: ' + email + '\n\nMessage:\n' + message)}`;
+    window.open(mailto, '_blank');
+
+    setTimeout(() => {
+        contactForm.style.display = 'none';
+        formSuccess.classList.add('show');
+        submitBtn.disabled = false;
+        submitBtn.innerHTML = '<i class="fas fa-paper-plane"></i> Send Message';
+    }, 800);
+});
     </script>
 </body>
 </html>
