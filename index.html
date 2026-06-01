@@ -1,4 +1,19 @@
-<!DOCTYPE html>
+
+                        <!DOCTYPE html>
+                        <html lang="en">
+                        <head>
+                            <meta charset="UTF-8">
+                            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+              <style>
+                body {
+                  background-color: white; /* Ensure the iframe has a white background */
+                }
+
+                
+              </style>
+                        </head>
+                        <body>
+                            <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -166,7 +181,7 @@
 
         .nav-links {
             display: flex;
-            gap: 1.8rem;
+            gap: 1.5rem;
             list-style: none;
         }
 
@@ -444,6 +459,12 @@
             transform: translateY(-2px);
         }
 
+        .btn-sm {
+            padding: 0.5rem 1rem;
+            font-size: 0.8rem;
+            border-radius: 6px;
+        }
+
         .hero-scroll-indicator {
             position: absolute;
             bottom: 2rem;
@@ -708,8 +729,8 @@
         /* Skills Section */
         .skills-grid {
             display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 1.5rem;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1rem;
         }
 
         .skill-item {
@@ -718,19 +739,28 @@
             border-radius: 12px;
             padding: 1.2rem 1.5rem;
             transition: var(--transition);
+            display: flex;
+            align-items: center;
+            gap: 1rem;
         }
 
         .skill-item:hover {
             border-color: var(--accent);
-            transform: translateX(5px);
+            transform: translateY(-3px);
             box-shadow: 0 5px 20px rgba(29, 158, 117, 0.1);
         }
 
-        .skill-header {
+        .skill-icon-sm {
+            width: 40px;
+            height: 40px;
+            min-width: 40px;
+            background: rgba(29, 158, 117, 0.1);
+            border-radius: 10px;
             display: flex;
-            justify-content: space-between;
             align-items: center;
-            margin-bottom: 0.8rem;
+            justify-content: center;
+            color: var(--accent);
+            font-size: 1rem;
         }
 
         .skill-name {
@@ -738,29 +768,7 @@
             font-size: 0.9rem;
         }
 
-        .skill-percent {
-            color: var(--accent);
-            font-weight: 700;
-            font-size: 0.85rem;
-            font-family: 'Poppins', sans-serif;
-        }
-
-        .skill-bar {
-            height: 8px;
-            background: var(--primary-bg);
-            border-radius: 4px;
-            overflow: hidden;
-        }
-
-        .skill-progress {
-            height: 100%;
-            background: linear-gradient(90deg, var(--accent), var(--accent-light));
-            border-radius: 4px;
-            width: 0;
-            transition: width 1.5s cubic-bezier(0.4, 0, 0.2, 1);
-        }
-
-        /* Education Section */
+        /* Education Section with Certificates */
         .education-bg {
             background: var(--secondary-bg);
             padding: 100px 0;
@@ -768,7 +776,7 @@
 
         .education-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
             gap: 1.5rem;
             max-width: 1200px;
             margin: 0 auto;
@@ -820,6 +828,7 @@
         .edu-meta {
             font-size: 0.85rem;
             color: var(--text-muted);
+            margin-bottom: 1rem;
         }
 
         .edu-badge {
@@ -830,10 +839,50 @@
             border-radius: 20px;
             font-size: 0.8rem;
             font-weight: 600;
-            margin-top: 0.5rem;
         }
 
-        /* Certifications Section */
+        .edu-cert-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            margin-top: 1rem;
+            background: rgba(29, 158, 117, 0.1);
+            border: 1px solid rgba(29, 158, 117, 0.3);
+            color: var(--accent);
+            padding: 0.6rem 1.2rem;
+            border-radius: 8px;
+            font-size: 0.82rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: var(--transition);
+            text-decoration: none;
+            font-family: 'Inter', sans-serif;
+        }
+
+        .edu-cert-btn:hover {
+            background: var(--accent);
+            color: white;
+            border-color: var(--accent);
+        }
+
+        /* Certifications Section - PROFESSIONAL ONLY */
+        .certs-section {
+            margin-bottom: 3rem;
+        }
+
+        .certs-section-title {
+            font-size: 1.3rem;
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .certs-section-title i {
+            color: var(--accent);
+        }
+
         .certs-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
@@ -847,12 +896,29 @@
             padding: 2rem;
             text-align: center;
             transition: var(--transition);
+            cursor: pointer;
+            position: relative;
         }
 
         .cert-card:hover {
             transform: translateY(-5px);
             border-color: var(--accent);
             box-shadow: 0 10px 40px rgba(29, 158, 117, 0.1);
+        }
+
+        .cert-card .view-badge {
+            position: absolute;
+            top: 12px;
+            right: 12px;
+            background: rgba(29, 158, 117, 0.15);
+            color: var(--accent);
+            padding: 0.2rem 0.6rem;
+            border-radius: 20px;
+            font-size: 0.7rem;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 0.3rem;
         }
 
         .cert-icon {
@@ -882,6 +948,124 @@
 
         .cert-status.in-progress {
             color: var(--accent);
+        }
+
+        /* Certificate Modal */
+        .cert-modal {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.85);
+            z-index: 10000;
+            display: none;
+            align-items: center;
+            justify-content: center;
+            padding: 2rem;
+        }
+
+        .cert-modal.active {
+            display: flex;
+        }
+
+        .cert-modal-content {
+            background: var(--secondary-bg);
+            border-radius: 20px;
+            max-width: 800px;
+            width: 100%;
+            max-height: 90vh;
+            overflow-y: auto;
+            position: relative;
+            border: 1px solid var(--border-color);
+        }
+
+        .cert-modal-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1.5rem 2rem;
+            border-bottom: 1px solid var(--border-color);
+            position: sticky;
+            top: 0;
+            background: var(--secondary-bg);
+            z-index: 1;
+            border-radius: 20px 20px 0 0;
+        }
+
+        .cert-modal-title {
+            font-size: 1.1rem;
+            font-weight: 700;
+        }
+
+        .cert-modal-close {
+            width: 36px;
+            height: 36px;
+            background: var(--primary-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            color: var(--text-light);
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: var(--transition);
+            font-size: 1rem;
+        }
+
+        .cert-modal-close:hover {
+            background: var(--accent);
+            color: white;
+            border-color: var(--accent);
+        }
+
+        .cert-modal-body {
+            padding: 2rem;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 300px;
+        }
+
+        .cert-modal-body img {
+            max-width: 100%;
+            max-height: 60vh;
+            object-fit: contain;
+            border-radius: 12px;
+        }
+
+        .cert-modal-placeholder {
+            text-align: center;
+            color: var(--text-muted);
+        }
+
+        .cert-modal-placeholder i {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            color: var(--accent);
+        }
+
+        .cert-modal-placeholder p {
+            margin-bottom: 0.5rem;
+        }
+
+        .cert-modal-download {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: var(--accent);
+            color: white;
+            padding: 0.8rem 1.5rem;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            margin-top: 1rem;
+            transition: var(--transition);
+        }
+
+        .cert-modal-download:hover {
+            background: var(--accent-light);
         }
 
         /* Key Achievements Section */
@@ -937,7 +1121,7 @@
 
         /* Performance Dashboard Section */
         .performance-bg {
-            background: var(--secondary-bg);
+            background: var(--primary-bg);
             padding: 100px 0;
         }
 
@@ -955,7 +1139,7 @@
         }
 
         .performance-stat-card {
-            background: var(--primary-bg);
+            background: var(--secondary-bg);
             border: 1px solid var(--border-color);
             border-radius: 16px;
             padding: 1.5rem;
@@ -1002,7 +1186,7 @@
         }
 
         .chart-card {
-            background: var(--primary-bg);
+            background: var(--secondary-bg);
             border: 1px solid var(--border-color);
             border-radius: 16px;
             padding: 2rem;
@@ -1101,6 +1285,23 @@
             font-size: 0.9rem;
             color: var(--text-light);
             line-height: 1.6;
+            margin-bottom: 1rem;
+        }
+
+        .service-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.4rem;
+            color: var(--accent);
+            text-decoration: none;
+            font-size: 0.85rem;
+            font-weight: 600;
+            transition: var(--transition);
+        }
+
+        .service-link:hover {
+            color: var(--accent-light);
+            gap: 0.6rem;
         }
 
         /* Languages Section */
@@ -1281,6 +1482,33 @@
             padding: 1rem;
             font-size: 1rem;
             margin-top: 0.5rem;
+        }
+
+        /* Form Success Message */
+        .form-success {
+            display: none;
+            text-align: center;
+            padding: 2rem;
+        }
+
+        .form-success.show {
+            display: block;
+        }
+
+        .form-success i {
+            font-size: 3rem;
+            color: var(--accent);
+            margin-bottom: 1rem;
+        }
+
+        .form-success h3 {
+            font-size: 1.3rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .form-success p {
+            color: var(--text-light);
+            font-size: 0.95rem;
         }
 
         /* Footer */
@@ -1550,6 +1778,10 @@
             .performance-summary {
                 grid-template-columns: repeat(2, 1fr);
             }
+
+            .cert-modal-content {
+                margin: 1rem;
+            }
         }
 
         @media (max-width: 480px) {
@@ -1664,7 +1896,7 @@
             <div class="hero-typing fade-in" id="typing-text"><span class="cursor"></span></div>
             <p class="hero-tagline fade-in">Driving Growth Through Strategy, Creativity and Data Across African Markets</p>
             <div class="hero-buttons fade-in">
-                <a href="https://drive.google.com/uc?export=download&id=1pxBgS0X5sxSlJpkERpSoeuJP01S-glnQ" target="_blank" rel="noopener noreferrer" class="btn btn-primary">
+                <a href="https://drive.google.com/file/d/1pxBgS0X5sxSlJpkERpSoeuJP01S-glnQ/view?usp=sharing" target="_blank" rel="noopener noreferrer" class="btn btn-primary">
                     <i class="fas fa-download"></i> Download CV
                 </a>
                 <a href="#contact" class="btn btn-secondary">
@@ -1695,7 +1927,7 @@
         <div class="achievements-grid">
             <div class="achievement-card fade-in">
                 <div class="achievement-icon"><i class="fas fa-users"></i></div>
-                <div class="achievement-number" data-target="50" data-suffix="+">0</div>
+                <div class="achievement-number" data-target="54" data-suffix="+">0</div>
                 <div class="achievement-label">International Clients Onboarded</div>
             </div>
             <div class="achievement-card fade-in">
@@ -1715,9 +1947,6 @@
             </div>
         </div>
         <div class="about-cta fade-in">
-            <a href="https://canva.link/3h67va062outhnq" target="_blank" rel="noopener noreferrer" class="btn btn-primary">
-                <i class="fas fa-eye"></i> View Portfolio
-            </a>
             <a href="#contact" class="btn btn-secondary">
                 <i class="fas fa-paper-plane"></i> Get In Touch
             </a>
@@ -1783,117 +2012,57 @@
         </div>
         <div class="skills-grid">
             <div class="skill-item fade-in">
-                <div class="skill-header">
-                    <span class="skill-name">B2B Sales & Client Acquisition</span>
-                    <span class="skill-percent">90%</span>
-                </div>
-                <div class="skill-bar">
-                    <div class="skill-progress" data-percent="90"></div>
-                </div>
+                <div class="skill-icon-sm"><i class="fas fa-handshake"></i></div>
+                <span class="skill-name">B2B Sales & Client Acquisition</span>
             </div>
             <div class="skill-item fade-in">
-                <div class="skill-header">
-                    <span class="skill-name">International Business Development</span>
-                    <span class="skill-percent">90%</span>
-                </div>
-                <div class="skill-bar">
-                    <div class="skill-progress" data-percent="90"></div>
-                </div>
+                <div class="skill-icon-sm"><i class="fas fa-globe-africa"></i></div>
+                <span class="skill-name">International Business Development</span>
             </div>
             <div class="skill-item fade-in">
-                <div class="skill-header">
-                    <span class="skill-name">Digital Marketing & Meta Ads</span>
-                    <span class="skill-percent">85%</span>
-                </div>
-                <div class="skill-bar">
-                    <div class="skill-progress" data-percent="85"></div>
-                </div>
+                <div class="skill-icon-sm"><i class="fas fa-bullhorn"></i></div>
+                <span class="skill-name">Digital Marketing & Meta Ads</span>
             </div>
             <div class="skill-item fade-in">
-                <div class="skill-header">
-                    <span class="skill-name">CRM Systems & Pipeline Management</span>
-                    <span class="skill-percent">88%</span>
-                </div>
-                <div class="skill-bar">
-                    <div class="skill-progress" data-percent="88"></div>
-                </div>
+                <div class="skill-icon-sm"><i class="fas fa-database"></i></div>
+                <span class="skill-name">CRM Systems & Pipeline Management</span>
             </div>
             <div class="skill-item fade-in">
-                <div class="skill-header">
-                    <span class="skill-name">Graphic Design — Canva</span>
-                    <span class="skill-percent">80%</span>
-                </div>
-                <div class="skill-bar">
-                    <div class="skill-progress" data-percent="80"></div>
-                </div>
+                <div class="skill-icon-sm"><i class="fas fa-palette"></i></div>
+                <span class="skill-name">Graphic Design — Canva</span>
             </div>
             <div class="skill-item fade-in">
-                <div class="skill-header">
-                    <span class="skill-name">Data Analysis & M&E</span>
-                    <span class="skill-percent">82%</span>
-                </div>
-                <div class="skill-bar">
-                    <div class="skill-progress" data-percent="82"></div>
-                </div>
+                <div class="skill-icon-sm"><i class="fas fa-chart-bar"></i></div>
+                <span class="skill-name">Data Analysis & M&E</span>
             </div>
             <div class="skill-item fade-in">
-                <div class="skill-header">
-                    <span class="skill-name">Proposal Writing & Documentation</span>
-                    <span class="skill-percent">88%</span>
-                </div>
-                <div class="skill-bar">
-                    <div class="skill-progress" data-percent="88"></div>
-                </div>
+                <div class="skill-icon-sm"><i class="fas fa-file-alt"></i></div>
+                <span class="skill-name">Proposal Writing & Documentation</span>
             </div>
             <div class="skill-item fade-in">
-                <div class="skill-header">
-                    <span class="skill-name">AI Tools & Applications</span>
-                    <span class="skill-percent">80%</span>
-                </div>
-                <div class="skill-bar">
-                    <div class="skill-progress" data-percent="80"></div>
-                </div>
+                <div class="skill-icon-sm"><i class="fas fa-robot"></i></div>
+                <span class="skill-name">AI Tools & Applications</span>
             </div>
             <div class="skill-item fade-in">
-                <div class="skill-header">
-                    <span class="skill-name">Team Leadership & Coordination</span>
-                    <span class="skill-percent">85%</span>
-                </div>
-                <div class="skill-bar">
-                    <div class="skill-progress" data-percent="85"></div>
-                </div>
+                <div class="skill-icon-sm"><i class="fas fa-users-cog"></i></div>
+                <span class="skill-name">Team Leadership & Coordination</span>
             </div>
             <div class="skill-item fade-in">
-                <div class="skill-header">
-                    <span class="skill-name">Social Media Management</span>
-                    <span class="skill-percent">83%</span>
-                </div>
-                <div class="skill-bar">
-                    <div class="skill-progress" data-percent="83"></div>
-                </div>
+                <div class="skill-icon-sm"><i class="fas fa-share-alt"></i></div>
+                <span class="skill-name">Social Media Management</span>
             </div>
             <div class="skill-item fade-in">
-                <div class="skill-header">
-                    <span class="skill-name">Microsoft Excel & Google Sheets</span>
-                    <span class="skill-percent">85%</span>
-                </div>
-                <div class="skill-bar">
-                    <div class="skill-progress" data-percent="85"></div>
-                </div>
+                <div class="skill-icon-sm"><i class="fas fa-table"></i></div>
+                <span class="skill-name">Microsoft Excel & Google Sheets</span>
             </div>
             <div class="skill-item fade-in">
-                <div class="skill-header">
-                    <span class="skill-name">Stakeholder Engagement</span>
-                    <span class="skill-percent">90%</span>
-                </div>
-                <div class="skill-bar">
-                    <div class="skill-progress" data-percent="90"></div>
-                </div>
+                <div class="skill-icon-sm"><i class="fas fa-comments"></i></div>
+                <span class="skill-name">Stakeholder Engagement</span>
             </div>
         </div>
     </section>
 
-    <!-- Education Section -->
+    <!-- Education Section with Certificates Attached -->
     <div class="education-bg" id="education">
         <section class="section" style="padding-top: 0; padding-bottom: 0;">
             <div class="section-header fade-in">
@@ -1908,6 +2077,10 @@
                     <p class="edu-institution">Kenyatta University</p>
                     <p class="edu-meta">2021 – 2025</p>
                     <span class="edu-badge">Second Class Upper Division</span>
+                    <br>
+                    <button class="edu-cert-btn" onclick="openCertModal('Bachelor of Education Certificate', 'cert-bachelors')">
+                        <i class="fas fa-certificate"></i> View Certificate
+                    </button>
                 </div>
                 <div class="education-card fade-in">
                     <div class="edu-icon"><i class="fas fa-code"></i></div>
@@ -1922,46 +2095,65 @@
                     <p class="edu-institution">Secondary School</p>
                     <p class="edu-meta">Completed</p>
                     <span class="edu-badge">Grade B+</span>
+                    <br>
+                    <button class="edu-cert-btn" onclick="openCertModal('KCSE Certificate', 'cert-kcse')">
+                        <i class="fas fa-certificate"></i> View Certificate
+                    </button>
                 </div>
             </div>
         </section>
     </div>
 
-    <!-- Certifications Section -->
+    <!-- Certifications Section - PROFESSIONAL ONLY (Removed Supervisory Skills) -->
     <section class="section" id="certifications">
         <div class="section-header fade-in">
             <p class="section-label">Continuous Learning</p>
-            <h2 class="section-title">Certifications</h2>
+            <h2 class="section-title">Professional Certifications</h2>
             <div class="section-line"></div>
         </div>
         <div class="certs-grid">
-            <div class="cert-card fade-in">
+            <div class="cert-card fade-in" onclick="openCertModal('Certificate in Monitoring and Evaluation', 'cert-me')">
+                <span class="view-badge"><i class="fas fa-eye"></i> View</span>
                 <div class="cert-icon"><i class="fas fa-chart-line"></i></div>
                 <h3 class="cert-title">Certificate in Monitoring and Evaluation</h3>
                 <span class="cert-status">Completed</span>
             </div>
-            <div class="cert-card fade-in">
-                <div class="cert-icon"><i class="fas fa-user-tie"></i></div>
-                <h3 class="cert-title">Certificate in Supervisory Skills</h3>
-                <span class="cert-status">Completed</span>
-            </div>
-            <div class="cert-card fade-in">
+            <div class="cert-card fade-in" onclick="openCertModal('Certificate in Project Management', 'cert-pm')">
+                <span class="view-badge"><i class="fas fa-eye"></i> View</span>
                 <div class="cert-icon"><i class="fas fa-tasks"></i></div>
                 <h3 class="cert-title">Certificate in Project Management</h3>
                 <span class="cert-status">Completed</span>
             </div>
-            <div class="cert-card fade-in">
+            <div class="cert-card fade-in" onclick="openCertModal('AI Safari — PLP Academy', 'cert-ai')">
+                <span class="view-badge"><i class="fas fa-eye"></i> View</span>
                 <div class="cert-icon"><i class="fas fa-robot"></i></div>
                 <h3 class="cert-title">AI Safari — PLP Academy</h3>
                 <span class="cert-status in-progress">In Progress</span>
             </div>
-            <div class="cert-card fade-in">
+            <div class="cert-card fade-in" onclick="openCertModal('Software Engineering — PLP Academy', 'cert-se')">
+                <span class="view-badge"><i class="fas fa-eye"></i> View</span>
                 <div class="cert-icon"><i class="fas fa-laptop-code"></i></div>
                 <h3 class="cert-title">Software Engineering — PLP Academy</h3>
                 <span class="cert-status in-progress">In Progress</span>
             </div>
         </div>
     </section>
+
+    <!-- Certificate Modal -->
+    <div class="cert-modal" id="certModal">
+        <div class="cert-modal-content">
+            <div class="cert-modal-header">
+                <h3 class="cert-modal-title" id="certModalTitle">Certificate</h3>
+                <button class="cert-modal-close" onclick="closeCertModal()"><i class="fas fa-times"></i></button>
+            </div>
+            <div class="cert-modal-body" id="certModalBody">
+                <div class="cert-modal-placeholder">
+                    <i class="fas fa-file-certificate"></i>
+                    <p>Certificate image will appear here</p>
+                </div>
+            </div>
+        </div>
+    </div>
 
     <!-- Key Achievements Section -->
     <div class="achievements-bg" id="key-achievements">
@@ -1974,7 +2166,7 @@
             <div class="achievements-full-grid">
                 <div class="achievement-full-card fade-in">
                     <div class="achievement-full-icon"><i class="fas fa-handshake"></i></div>
-                    <p class="achievement-full-text">Acquired and onboarded 50+ direct international clients across Liberia, Rwanda, Namibia and Ethiopia — exceeding targets in every cohort</p>
+                    <p class="achievement-full-text">Acquired and onboarded 54+ direct international clients across Liberia, Rwanda, Namibia and Ethiopia — exceeding targets in every cohort</p>
                 </div>
                 <div class="achievement-full-card fade-in">
                     <div class="achievement-full-icon"><i class="fas fa-chart-line"></i></div>
@@ -2010,25 +2202,25 @@
             </div>
             <div class="performance-container">
                 <!-- Summary Cards -->
-                <div class="performance-summary fade-in" id="performanceSummary">
+                <div class="performance-summary fade-in">
                     <div class="performance-stat-card">
                         <div class="performance-stat-icon"><i class="fas fa-users"></i></div>
-                        <div class="performance-stat-value" id="totalClients">58</div>
+                        <div class="performance-stat-value">54+</div>
                         <div class="performance-stat-label">Total Clients Acquired</div>
                     </div>
                     <div class="performance-stat-card">
                         <div class="performance-stat-icon"><i class="fas fa-dollar-sign"></i></div>
-                        <div class="performance-stat-value" id="totalRevenue">$30K+</div>
+                        <div class="performance-stat-value">$30K</div>
                         <div class="performance-stat-label">Total Revenue Generated</div>
                     </div>
                     <div class="performance-stat-card">
-                        <div class="performance-stat-icon"><i class="fas fa-chart-line"></i></div>
-                        <div class="performance-stat-value" id="avgEngagement">88.2%</div>
-                        <div class="performance-stat-label">Average Engagement Rate</div>
+                        <div class="performance-stat-icon"><i class="fas fa-calendar-check"></i></div>
+                        <div class="performance-stat-value">4</div>
+                        <div class="performance-stat-label">Programs Delivered</div>
                     </div>
                     <div class="performance-stat-card">
                         <div class="performance-stat-icon"><i class="fas fa-trophy"></i></div>
-                        <div class="performance-stat-value" id="topPerformer">Namibia</div>
+                        <div class="performance-stat-value">Namibia</div>
                         <div class="performance-stat-label">Top Performing Market</div>
                     </div>
                 </div>
@@ -2036,13 +2228,13 @@
                 <!-- Charts -->
                 <div class="performance-charts fade-in">
                     <div class="chart-card">
-                        <h3 class="chart-title"><i class="fas fa-users"></i> Client Acquisition by Country</h3>
+                        <h3 class="chart-title"><i class="fas fa-users"></i> Participants by Country</h3>
                         <div class="chart-wrapper">
                             <canvas id="clientsChart"></canvas>
                         </div>
                     </div>
                     <div class="chart-card">
-                        <h3 class="chart-title"><i class="fas fa-dollar-sign"></i> Monthly Revenue ($)</h3>
+                        <h3 class="chart-title"><i class="fas fa-dollar-sign"></i> Revenue by Program</h3>
                         <div class="chart-wrapper">
                             <canvas id="revenueChart"></canvas>
                         </div>
@@ -2051,13 +2243,13 @@
 
                 <div class="performance-charts fade-in" style="margin-top: 2rem;">
                     <div class="chart-card">
-                        <h3 class="chart-title"><i class="fas fa-chart-area"></i> Engagement Metrics Trend</h3>
+                        <h3 class="chart-title"><i class="fas fa-bullseye"></i> Target vs Actual Participants</h3>
                         <div class="chart-wrapper">
-                            <canvas id="engagementChart"></canvas>
+                            <canvas id="targetChart"></canvas>
                         </div>
                     </div>
                     <div class="chart-card">
-                        <h3 class="chart-title"><i class="fas fa-chart-pie"></i> Revenue by Source</h3>
+                        <h3 class="chart-title"><i class="fas fa-chart-pie"></i> Revenue Distribution</h3>
                         <div class="chart-wrapper">
                             <canvas id="revenuePieChart"></canvas>
                         </div>
@@ -2089,6 +2281,9 @@
                 <div class="service-icon"><i class="fas fa-palette"></i></div>
                 <h3 class="service-title">Graphic Design & Visual Content</h3>
                 <p class="service-desc">Flyers, branded visuals, promotional videos for maximum brand impact.</p>
+                <a href="https://canva.link/3h67va062outhnq" target="_blank" rel="noopener noreferrer" class="service-link">
+                    View Portfolio <i class="fas fa-arrow-right"></i>
+                </a>
             </div>
             <div class="service-card fade-in">
                 <div class="service-icon"><i class="fas fa-chart-bar"></i></div>
@@ -2118,7 +2313,7 @@
             </div>
             <div class="languages-grid">
                 <div class="language-badge fade-in">
-                    <div class="language-flag">🇬</div>
+                    <div class="language-flag">🇬🇧</div>
                     <div class="language-name">English</div>
                     <div class="language-level">Fluent</div>
                 </div>
@@ -2131,7 +2326,7 @@
         </section>
     </div>
 
-    <!-- Contact Section -->
+    <!-- Contact Section with FormSubmit.co -->
     <section class="section" id="contact">
         <div class="section-header fade-in">
             <p class="section-label">Get In Touch</p>
@@ -2172,37 +2367,43 @@
                         <p class="contact-item-value">Nairobi, Kenya</p>
                     </div>
                 </div>
-                <div class="contact-item">
-                    <div class="contact-item-icon"><i class="fas fa-palette"></i></div>
-                    <div>
-                        <p class="contact-item-label">Portfolio</p>
-                        <p class="contact-item-value"><a href="https://canva.link/3h67va062outhnq" target="_blank" rel="noopener noreferrer">canva.link/3h67va062outhnq</a></p>
+            </div>
+            <div class="contact-form fade-in" id="contactFormWrapper">
+                <form id="contactForm" action="https://formsubmit.co/mutungashadrack0909@gmail.com" method="POST">
+                    <!-- FormSubmit.co Configuration -->
+                    <input type="hidden" name="_subject" value="New Portfolio Contact!">
+                    <input type="hidden" name="_captcha" value="false">
+                    <input type="hidden" name="_template" value="table">
+                    <input type="hidden" name="_next" id="formRedirect">
+                    
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="name">Your Name</label>
+                            <input type="text" id="name" name="name" placeholder="John Doe" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Your Email</label>
+                            <input type="email" id="email" name="email" placeholder="john@example.com" required>
+                        </div>
                     </div>
+                    <div class="form-group">
+                        <label for="subject">Subject</label>
+                        <input type="text" id="subject" name="subject" placeholder="Business Opportunity" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="message">Message</label>
+                        <textarea id="message" name="message" placeholder="Tell me about your project or opportunity..." required></textarea>
+                    </div>
+                    <button type="submit" class="btn btn-primary submit-btn" id="submitBtn">
+                        <i class="fas fa-paper-plane"></i> Send Message
+                    </button>
+                </form>
+                <div class="form-success" id="formSuccess">
+                    <i class="fas fa-check-circle"></i>
+                    <h3>Message Sent!</h3>
+                    <p>Thank you for reaching out. I'll get back to you soon.</p>
                 </div>
             </div>
-            <form class="contact-form fade-in" id="contactForm">
-                <div class="form-row">
-                    <div class="form-group">
-                        <label for="name">Your Name</label>
-                        <input type="text" id="name" name="name" placeholder="John Doe" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="email">Your Email</label>
-                        <input type="email" id="email" name="email" placeholder="john@example.com" required>
-                    </div>
-                </div>
-                <div class="form-group">
-                    <label for="subject">Subject</label>
-                    <input type="text" id="subject" name="subject" placeholder="Business Opportunity" required>
-                </div>
-                <div class="form-group">
-                    <label for="message">Message</label>
-                    <textarea id="message" name="message" placeholder="Tell me about your project or opportunity..." required></textarea>
-                </div>
-                <button type="submit" class="btn btn-primary submit-btn" id="submitBtn">
-                    <i class="fas fa-paper-plane"></i> Send Message
-                </button>
-            </form>
         </div>
     </section>
 
@@ -2251,9 +2452,90 @@
     </a>
 
     <!-- Toast -->
-    <div class="toast" id="toast">Message sent successfully!</div>
+    <div class="toast" id="toast"></div>
 
     <script>
+        // ============================================
+        // CERTIFICATE IMAGE CONFIGURATION
+        // Replace the image URLs with your actual certificate files
+        // Example: image: 'certificates/me-cert.jpg'
+        // ============================================
+        const certificateImages = {
+            'cert-me': {
+                title: 'Certificate in Monitoring and Evaluation',
+                image: '',
+                download: ''
+            },
+            'cert-pm': {
+                title: 'Certificate in Project Management',
+                image: '',
+                download: ''
+            },
+            'cert-ai': {
+                title: 'AI Safari — PLP Academy',
+                image: '',
+                download: ''
+            },
+            'cert-se': {
+                title: 'Software Engineering — PLP Academy',
+                image: '',
+                download: ''
+            },
+            'cert-bachelors': {
+                title: 'Bachelor of Education Certificate',
+                image: '',
+                download: ''
+            },
+            'cert-kcse': {
+                title: 'KCSE Certificate',
+                image: '',
+                download: ''
+            }
+        };
+
+        // Certificate Modal Functions
+        function openCertModal(title, certId) {
+            const modal = document.getElementById('certModal');
+            const modalTitle = document.getElementById('certModalTitle');
+            const modalBody = document.getElementById('certModalBody');
+
+            const cert = certificateImages[certId] || { title: title, image: '', download: '' };
+            modalTitle.textContent = cert.title;
+
+            if (cert.image) {
+                modalBody.innerHTML = `
+                    <img src="${cert.image}" alt="${cert.title}" onerror="this.outerHTML='<div class=\'cert-modal-placeholder\'><i class=\'fas fa-exclamation-triangle\' style=\'font-size:3rem;color:var(--accent);margin-bottom:1rem\'></i><p>Image not found. Please add the correct file path.</p></div>'">
+                    ${cert.download ? `<a href="${cert.download}" class="cert-modal-download" download><i class="fas fa-download"></i> Download</a>` : ''}
+                `;
+            } else {
+                modalBody.innerHTML = `
+                    <div class="cert-modal-placeholder">
+                        <i class="fas fa-file-certificate"></i>
+                        <p><strong>${cert.title}</strong></p>
+                        <p style="font-size: 0.85rem; margin-top: 0.5rem;">Certificate image will appear here once added</p>
+                        <p style="font-size: 0.75rem; color: var(--text-muted); margin-top: 0.5rem;">Add your certificate image in the JavaScript config at the top of the page</p>
+                        ${cert.download ? `<a href="${cert.download}" class="cert-modal-download" download><i class="fas fa-download"></i> Download Certificate</a>` : ''}
+                    </div>
+                `;
+            }
+
+            modal.classList.add('active');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeCertModal() {
+            document.getElementById('certModal').classList.remove('active');
+            document.body.style.overflow = '';
+        }
+
+        document.getElementById('certModal').addEventListener('click', function(e) {
+            if (e.target === this) closeCertModal();
+        });
+
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape') closeCertModal();
+        });
+
         // Loading Screen
         window.addEventListener('load', () => {
             setTimeout(() => {
@@ -2266,8 +2548,7 @@
         window.addEventListener('scroll', () => {
             const scrollTop = window.scrollY;
             const docHeight = document.documentElement.scrollHeight - window.innerHeight;
-            const scrollPercent = (scrollTop / docHeight) * 100;
-            scrollProgress.style.width = scrollPercent + '%';
+            scrollProgress.style.width = (scrollTop / docHeight) * 100 + '%';
         });
 
         // Typing Effect
@@ -2278,9 +2559,7 @@
             "Graphic Designer",
             "Data Analysis & M&E Expert"
         ];
-        let textIndex = 0;
-        let charIndex = 0;
-        let isDeleting = false;
+        let textIndex = 0, charIndex = 0, isDeleting = false;
         const typingElement = document.getElementById('typing-text');
 
         function typeEffect() {
@@ -2295,32 +2574,30 @@
                 typingElement.innerHTML = currentText.substring(0, charIndex) + cursor;
             }
 
-            let typeSpeed = isDeleting ? 35 : 70;
+            let speed = isDeleting ? 35 : 70;
 
             if (!isDeleting && charIndex === currentText.length) {
-                typeSpeed = 2000;
+                speed = 2000;
                 isDeleting = true;
             } else if (isDeleting && charIndex === 0) {
                 isDeleting = false;
                 textIndex = (textIndex + 1) % typingTexts.length;
-                typeSpeed = 400;
+                speed = 400;
             }
 
-            setTimeout(typeEffect, typeSpeed);
+            setTimeout(typeEffect, speed);
         }
-
         typeEffect();
 
         // Particles Canvas
         const canvas = document.getElementById('particles-canvas');
         const ctx = canvas.getContext('2d');
-        let particlesArray = [];
+        let particles = [];
 
         function resizeCanvas() {
             canvas.width = window.innerWidth;
             canvas.height = window.innerHeight;
         }
-
         resizeCanvas();
         window.addEventListener('resize', resizeCanvas);
 
@@ -2333,17 +2610,14 @@
                 this.speedY = (Math.random() - 0.5) * 0.5;
                 this.opacity = Math.random() * 0.5 + 0.1;
             }
-
             update() {
                 this.x += this.speedX;
                 this.y += this.speedY;
-
                 if (this.x > canvas.width) this.x = 0;
                 if (this.x < 0) this.x = canvas.width;
                 if (this.y > canvas.height) this.y = 0;
                 if (this.y < 0) this.y = canvas.height;
             }
-
             draw() {
                 ctx.fillStyle = `rgba(29, 158, 117, ${this.opacity})`;
                 ctx.beginPath();
@@ -2353,27 +2627,23 @@
         }
 
         function initParticles() {
-            particlesArray = [];
-            const numParticles = Math.min(80, Math.floor(canvas.width * canvas.height / 15000));
-            for (let i = 0; i < numParticles; i++) {
-                particlesArray.push(new Particle());
-            }
+            particles = [];
+            const count = Math.min(80, Math.floor(canvas.width * canvas.height / 15000));
+            for (let i = 0; i < count; i++) particles.push(new Particle());
         }
 
         function connectParticles() {
-            for (let a = 0; a < particlesArray.length; a++) {
-                for (let b = a + 1; b < particlesArray.length; b++) {
-                    const dx = particlesArray[a].x - particlesArray[b].x;
-                    const dy = particlesArray[a].y - particlesArray[b].y;
-                    const distance = Math.sqrt(dx * dx + dy * dy);
-
-                    if (distance < 120) {
-                        const opacity = (1 - distance / 120) * 0.15;
-                        ctx.strokeStyle = `rgba(29, 158, 117, ${opacity})`;
+            for (let a = 0; a < particles.length; a++) {
+                for (let b = a + 1; b < particles.length; b++) {
+                    const dx = particles[a].x - particles[b].x;
+                    const dy = particles[a].y - particles[b].y;
+                    const dist = Math.sqrt(dx * dx + dy * dy);
+                    if (dist < 120) {
+                        ctx.strokeStyle = `rgba(29, 158, 117, ${(1 - dist / 120) * 0.15})`;
                         ctx.lineWidth = 0.5;
                         ctx.beginPath();
-                        ctx.moveTo(particlesArray[a].x, particlesArray[a].y);
-                        ctx.lineTo(particlesArray[b].x, particlesArray[b].y);
+                        ctx.moveTo(particles[a].x, particles[a].y);
+                        ctx.lineTo(particles[b].x, particles[b].y);
                         ctx.stroke();
                     }
                 }
@@ -2382,10 +2652,7 @@
 
         function animateParticles() {
             ctx.clearRect(0, 0, canvas.width, canvas.height);
-            particlesArray.forEach(p => {
-                p.update();
-                p.draw();
-            });
+            particles.forEach(p => { p.update(); p.draw(); });
             connectParticles();
             requestAnimationFrame(animateParticles);
         }
@@ -2393,22 +2660,13 @@
         initParticles();
         animateParticles();
 
-        // Navbar Scroll Effect
+        // Navbar
         const navbar = document.getElementById('navbar');
         const backToTop = document.getElementById('backToTop');
 
         window.addEventListener('scroll', () => {
-            if (window.scrollY > 50) {
-                navbar.classList.add('scrolled');
-            } else {
-                navbar.classList.remove('scrolled');
-            }
-
-            if (window.scrollY > 500) {
-                backToTop.classList.add('visible');
-            } else {
-                backToTop.classList.remove('visible');
-            }
+            navbar.classList.toggle('scrolled', window.scrollY > 50);
+            backToTop.classList.toggle('visible', window.scrollY > 500);
         });
 
         // Mobile Menu
@@ -2436,329 +2694,202 @@
             });
         });
 
-        // Active Nav Highlighting
+        // Active Nav
         const allSections = document.querySelectorAll('section[id], .experience-bg, .education-bg, .achievements-bg, .languages-bg, .performance-bg');
         const navLinksAll = document.querySelectorAll('.nav-links a');
 
         function highlightNav() {
-            let currentSection = '';
-            allSections.forEach(section => {
-                const sectionTop = section.offsetTop - 120;
-                if (window.scrollY >= sectionTop) {
-                    currentSection = section.getAttribute('id');
-                }
+            let current = '';
+            allSections.forEach(s => {
+                if (window.scrollY >= s.offsetTop - 120) current = s.getAttribute('id');
             });
-
             navLinksAll.forEach(link => {
-                link.classList.remove('active');
-                if (link.getAttribute('href') === '#' + currentSection) {
-                    link.classList.add('active');
-                }
+                link.classList.toggle('active', link.getAttribute('href') === '#' + current);
             });
         }
-
         window.addEventListener('scroll', highlightNav);
 
         // Scroll Animations
-        const fadeElements = document.querySelectorAll('.fade-in');
-
-        const observerOptions = {
-            threshold: 0.1,
-            rootMargin: '0px 0px -50px 0px'
-        };
-
         const observer = new IntersectionObserver((entries) => {
-            entries.forEach((entry) => {
+            entries.forEach(entry => {
                 if (entry.isIntersecting) {
                     entry.target.classList.add('visible');
                     observer.unobserve(entry.target);
                 }
             });
-        }, observerOptions);
+        }, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
 
-        fadeElements.forEach(el => observer.observe(el));
-
-        // Skill Bars Animation
-        function initSkillBars() {
-            const skillBars = document.querySelectorAll('.skill-progress');
-            const skillObserver = new IntersectionObserver((entries) => {
-                entries.forEach(entry => {
-                    if (entry.isIntersecting) {
-                        const percent = entry.target.getAttribute('data-percent');
-                        entry.target.style.width = percent + '%';
-                        skillObserver.unobserve(entry.target);
-                    }
-                });
-            }, { threshold: 0.3 });
-
-            skillBars.forEach(bar => skillObserver.observe(bar));
-        }
-
-        window.addEventListener('load', initSkillBars);
+        document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
 
         // Counter Animation
-        function animateCounter(element, target, prefix = '', suffix = '') {
+        function animateCounter(el, target, prefix = '', suffix = '') {
             let current = 0;
-            const duration = 2000;
-            const increment = target / (duration / 16);
+            const inc = target / 125;
             const timer = setInterval(() => {
-                current += increment;
-                if (current >= target) {
-                    current = target;
-                    clearInterval(timer);
-                }
-                element.textContent = prefix + Math.floor(current).toLocaleString() + suffix;
+                current += inc;
+                if (current >= target) { current = target; clearInterval(timer); }
+                el.textContent = prefix + Math.floor(current).toLocaleString() + suffix;
             }, 16);
         }
 
-        const achievementNumbers = document.querySelectorAll('.achievement-number[data-target]');
         const achievementObserver = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
-                    const target = parseInt(entry.target.getAttribute('data-target'));
-                    const prefix = entry.target.getAttribute('data-prefix') || '';
-                    const suffix = entry.target.getAttribute('data-suffix') || '';
-                    animateCounter(entry.target, target, prefix, suffix);
+                    const target = parseInt(entry.target.dataset.target);
+                    animateCounter(entry.target, target, entry.target.dataset.prefix || '', entry.target.dataset.suffix || '');
                     achievementObserver.unobserve(entry.target);
                 }
             });
         }, { threshold: 0.5 });
 
-        achievementNumbers.forEach(num => achievementObserver.observe(num));
+        document.querySelectorAll('.achievement-number[data-target]').forEach(el => achievementObserver.observe(el));
 
         // Performance Charts
         function initPerformanceCharts() {
-            // Client Acquisition Chart
-            const clientsCtx = document.getElementById('clientsChart');
-            if (clientsCtx) {
-                new Chart(clientsCtx, {
-                    type: 'bar',
-                    data: {
-                        labels: ['Liberia', 'Rwanda', 'Namibia', 'Ethiopia', 'Follow-ups', 'Conversions'],
-                        datasets: [{
-                            label: 'Clients',
-                            data: [8, 10, 22, 10, 5, 3],
-                            backgroundColor: [
-                                'rgba(29, 158, 117, 0.8)',
-                                'rgba(29, 158, 117, 0.7)',
-                                'rgba(29, 158, 117, 1)',
-                                'rgba(29, 158, 117, 0.6)',
-                                'rgba(29, 158, 117, 0.5)',
-                                'rgba(29, 158, 117, 0.4)'
-                            ],
-                            borderColor: 'rgba(29, 158, 117, 1)',
-                            borderWidth: 1,
-                            borderRadius: 8
-                        }]
+            // Participants by Country
+            new Chart(document.getElementById('clientsChart'), {
+                type: 'bar',
+                data: {
+                    labels: ['Liberia', 'Rwanda', 'Namibia', 'Ethiopia'],
+                    datasets: [{
+                        label: 'Participants',
+                        data: [12, 10, 22, 10],
+                        backgroundColor: ['rgba(29,158,117,0.9)','rgba(29,158,117,0.75)','rgba(29,158,117,1)','rgba(29,158,117,0.6)'],
+                        borderColor: 'rgba(29,158,117,1)',
+                        borderWidth: 1,
+                        borderRadius: 8
+                    }]
+                },
+                options: {
+                    responsive: true, maintainAspectRatio: false,
+                    plugins: { legend: { display: false } },
+                    scales: {
+                        y: { beginAtZero: true, grid: { color: 'rgba(255,255,255,0.05)' }, ticks: { color: '#b0b8c8', stepSize: 5 } },
+                        x: { grid: { display: false }, ticks: { color: '#b0b8c8' } }
                     },
-                    options: {
-                        responsive: true,
-                        maintainAspectRatio: false,
-                        plugins: { legend: { display: false } },
-                        scales: {
-                            y: {
-                                beginAtZero: true,
-                                grid: { color: 'rgba(255,255,255,0.05)' },
-                                ticks: { color: '#b0b8c8' }
-                            },
-                            x: {
-                                grid: { display: false },
-                                ticks: { color: '#b0b8c8' }
-                            }
-                        },
-                        animation: { duration: 2000, easing: 'easeOutQuart' }
-                    }
-                });
-            }
+                    animation: { duration: 2000, easing: 'easeOutQuart' }
+                }
+            });
 
-            // Revenue Chart
-            const revenueCtx = document.getElementById('revenueChart');
-            if (revenueCtx) {
-                new Chart(revenueCtx, {
-                    type: 'line',
-                    data: {
-                        labels: ['May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct'],
-                        datasets: [{
-                            label: 'Revenue ($)',
-                            data: [4500, 6200, 8900, 5400, 3200, 1800],
-                            borderColor: '#1D9E75',
-                            backgroundColor: 'rgba(29, 158, 117, 0.1)',
-                            fill: true,
-                            tension: 0.4,
-                            pointBackgroundColor: '#1D9E75',
-                            pointBorderColor: '#fff',
-                            pointBorderWidth: 2,
-                            pointRadius: 5
-                        }]
+            // Revenue by Program
+            new Chart(document.getElementById('revenueChart'), {
+                type: 'bar',
+                data: {
+                    labels: ['Leadership Training', 'Digital Skills', 'Business Dev Bootcamp', 'Trade Workshop', 'CRM & Analytics', 'AI for Business'],
+                    datasets: [{
+                        label: 'Revenue ($)',
+                        data: [4500, 6200, 8900, 5400, 3200, 1800],
+                        backgroundColor: 'rgba(29,158,117,0.7)',
+                        borderColor: 'rgba(29,158,117,1)',
+                        borderWidth: 1,
+                        borderRadius: 6
+                    }]
+                },
+                options: {
+                    responsive: true, maintainAspectRatio: false, indexAxis: 'y',
+                    plugins: { legend: { display: false } },
+                    scales: {
+                        x: { beginAtZero: true, grid: { color: 'rgba(255,255,255,0.05)' }, ticks: { color: '#b0b8c8', callback: v => '$' + v.toLocaleString() } },
+                        y: { grid: { display: false }, ticks: { color: '#b0b8c8', font: { size: 11 } } }
                     },
-                    options: {
-                        responsive: true,
-                        maintainAspectRatio: false,
-                        plugins: { legend: { display: false } },
-                        scales: {
-                            y: {
-                                beginAtZero: true,
-                                grid: { color: 'rgba(255,255,255,0.05)' },
-                                ticks: { color: '#b0b8c8', callback: function(v) { return '$' + v; } }
-                            },
-                            x: {
-                                grid: { display: false },
-                                ticks: { color: '#b0b8c8' }
-                            }
-                        },
-                        animation: { duration: 2500, easing: 'easeOutQuart' }
-                    }
-                });
-            }
+                    animation: { duration: 2000, easing: 'easeOutQuart' }
+                }
+            });
 
-            // Engagement Chart
-            const engagementCtx = document.getElementById('engagementChart');
-            if (engagementCtx) {
-                new Chart(engagementCtx, {
-                    type: 'line',
-                    data: {
-                        labels: ['May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct'],
-                        datasets: [{
-                            label: 'Engagement %',
-                            data: [85, 92, 78, 95, 88, 91],
-                            borderColor: '#25c996',
-                            backgroundColor: 'rgba(37, 201, 150, 0.1)',
-                            fill: true,
-                            tension: 0.4,
-                            pointBackgroundColor: '#25c996',
-                            pointBorderColor: '#fff',
-                            pointBorderWidth: 2,
-                            pointRadius: 5
-                        }]
+            // Target vs Actual
+            new Chart(document.getElementById('targetChart'), {
+                type: 'bar',
+                data: {
+                    labels: ['Liberia', 'Rwanda', 'Namibia', 'Ethiopia'],
+                    datasets: [
+                        { label: 'Target', data: [10, 10, 10, 10], backgroundColor: 'rgba(255,193,7,0.3)', borderColor: 'rgba(255,193,7,0.8)', borderWidth: 1, borderRadius: 6 },
+                        { label: 'Actual', data: [12, 10, 22, 10], backgroundColor: 'rgba(29,158,117,0.8)', borderColor: 'rgba(29,158,117,1)', borderWidth: 1, borderRadius: 6 }
+                    ]
+                },
+                options: {
+                    responsive: true, maintainAspectRatio: false,
+                    plugins: { legend: { labels: { color: '#b0b8c8', padding: 20 } } },
+                    scales: {
+                        y: { beginAtZero: true, grid: { color: 'rgba(255,255,255,0.05)' }, ticks: { color: '#b0b8c8', stepSize: 5 } },
+                        x: { grid: { display: false }, ticks: { color: '#b0b8c8' } }
                     },
-                    options: {
-                        responsive: true,
-                        maintainAspectRatio: false,
-                        plugins: { legend: { display: false } },
-                        scales: {
-                            y: {
-                                min: 70, max: 100,
-                                grid: { color: 'rgba(255,255,255,0.05)' },
-                                ticks: { color: '#b0b8c8', callback: function(v) { return v + '%'; } }
-                            },
-                            x: {
-                                grid: { display: false },
-                                ticks: { color: '#b0b8c8' }
-                            }
-                        },
-                        animation: { duration: 2000, easing: 'easeOutQuart' }
-                    }
-                });
-            }
+                    animation: { duration: 2000, easing: 'easeOutQuart' }
+                }
+            });
 
-            // Revenue Pie Chart
-            const pieCtx = document.getElementById('revenuePieChart');
-            if (pieCtx) {
-                new Chart(pieCtx, {
-                    type: 'doughnut',
-                    data: {
-                        labels: ['Training', 'Programs', 'Consulting', 'Digital', 'Marketing', 'Design'],
-                        datasets: [{
-                            data: [4500, 6200, 8900, 5400, 3200, 1800],
-                            backgroundColor: [
-                                'rgba(29, 158, 117, 1)',
-                                'rgba(29, 158, 117, 0.85)',
-                                'rgba(29, 158, 117, 0.7)',
-                                'rgba(29, 158, 117, 0.55)',
-                                'rgba(29, 158, 117, 0.4)',
-                                'rgba(29, 158, 117, 0.25)'
-                            ],
-                            borderColor: '#16243A',
-                            borderWidth: 2
-                        }]
-                    },
-                    options: {
-                        responsive: true,
-                        maintainAspectRatio: false,
-                        plugins: {
-                            legend: {
-                                position: 'right',
-                                labels: { color: '#b0b8c8', padding: 15 }
+            // Revenue Pie
+            new Chart(document.getElementById('revenuePieChart'), {
+                type: 'doughnut',
+                data: {
+                    labels: ['Leadership Training', 'Digital Skills', 'Business Dev Bootcamp', 'Trade Workshop', 'CRM & Analytics', 'AI for Business'],
+                    datasets: [{
+                        data: [4500, 6200, 8900, 5400, 3200, 1800],
+                        backgroundColor: ['rgba(29,158,117,1)','rgba(29,158,117,0.85)','rgba(29,158,117,0.7)','rgba(29,158,117,0.55)','rgba(29,158,117,0.4)','rgba(29,158,117,0.25)'],
+                        borderColor: '#16243A', borderWidth: 2
+                    }]
+                },
+                options: {
+                    responsive: true, maintainAspectRatio: false,
+                    plugins: {
+                        legend: { position: 'right', labels: { color: '#b0b8c8', padding: 12, font: { size: 11 } } },
+                        tooltip: {
+                            callbacks: {
+                                label: function(ctx) {
+                                    const total = ctx.dataset.data.reduce((a, b) => a + b, 0);
+                                    return ctx.label + ': $' + ctx.parsed.toLocaleString() + ' (' + ((ctx.parsed / total) * 100).toFixed(1) + '%)';
+                                }
                             }
-                        },
-                        animation: { animateRotate: true, duration: 2000, easing: 'easeOutQuart' }
-                    }
-                });
-            }
+                        }
+                    },
+                    animation: { animateRotate: true, duration: 2000, easing: 'easeOutQuart' }
+                }
+            });
         }
 
-        // Initialize charts when performance section is visible
-        const performanceSection = document.getElementById('performance');
-        if (performanceSection) {
-            const chartObserver = new IntersectionObserver((entries) => {
+        const perfSection = document.getElementById('performance');
+        if (perfSection) {
+            const chartObs = new IntersectionObserver((entries) => {
                 entries.forEach(entry => {
-                    if (entry.isIntersecting) {
-                        initPerformanceCharts();
-                        chartObserver.unobserve(entry.target);
-                    }
+                    if (entry.isIntersecting) { initPerformanceCharts(); chartObs.unobserve(entry.target); }
                 });
             }, { threshold: 0.2 });
-
-            chartObserver.observe(performanceSection);
+            chartObs.observe(perfSection);
         }
 
-        // Contact Form - WORKS WITHOUT BACKEND
+        // Contact Form - Set redirect URL for FormSubmit.co
+        document.getElementById('formRedirect').value = window.location.href;
+
+        // Handle FormSubmit.co response
         const contactForm = document.getElementById('contactForm');
-        const toast = document.getElementById('toast');
         const submitBtn = document.getElementById('submitBtn');
+        const formWrapper = document.getElementById('contactFormWrapper');
+        const formSuccess = document.getElementById('formSuccess');
 
-        contactForm.addEventListener('submit', async (e) => {
-            e.preventDefault();
-            
-            const name = document.getElementById('name').value;
-            const email = document.getElementById('email').value;
-            const subject = document.getElementById('subject').value;
-            const message = document.getElementById('message').value;
-
-            // Disable button during submission
+        contactForm.addEventListener('submit', function(e) {
             submitBtn.disabled = true;
             submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Sending...';
-
-            // Try backend first, fallback to mailto
-            try {
-                const response = await fetch('/api/contact', {
-                    method: 'POST',
-                    headers: { 'Content-Type': 'application/json' },
-                    body: JSON.stringify({ name, email, subject, message })
-                });
-
-                const data = await response.json();
-
-                if (data.success) {
-                    toast.className = 'toast show';
-                    toast.textContent = 'Message sent successfully!';
-                } else {
-                    throw new Error(data.error);
-                }
-            } catch (error) {
-                // Backend not available - use mailto fallback
-                const mailtoLink = `mailto:mutungashadrack0909@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(
-                    `Name: ${name}\nEmail: ${email}\n\nMessage:\n${message}`
-                )}`;
-                
-                window.location.href = mailtoLink;
-                
-                toast.className = 'toast show';
-                toast.textContent = 'Opening your email client to send the message...';
-            }
-
-            setTimeout(() => {
-                toast.classList.remove('show');
-            }, 4000);
-
-            // Re-enable button
-            submitBtn.disabled = false;
-            submitBtn.innerHTML = '<i class="fas fa-paper-plane"></i> Send Message';
-            
-            // Reset form
-            contactForm.reset();
         });
+
+        // Check if returning from FormSubmit.co redirect
+        if (window.location.href.includes('formsubmit.co')) {
+            contactForm.style.display = 'none';
+            formSuccess.classList.add('show');
+        }
     </script>
 </body>
 </html>
 
+
+
+              <script>
+                              'cert-bachelors': {
+    title: 'Bachelor of Education Certificate',
+    image: 'certificates/bachelors.jpg',  // ← your image path
+    download: 'certificates/bachelors.pdf'
+},
+
+
+              </script>
+                        </body>
+                        </html>
+                    
